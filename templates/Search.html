@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300&display=swap" rel="stylesheet">
+    <link rel="icon" href="http://obj-cache.cloud.ruanbekker.com/favicon.ico">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Election France </title>
+
+</head>
+{% if request.method == "GET" %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>W3.CSS Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Raleway", Arial, Helvetica, sans-serif
+        }
+
+        .myLink {
+            display: none
+        }
+    </style>
+</head>
+<body class="w3-light-grey">
+
+    <!-- Navigation Bar -->
+    <div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+    </div>
+
+    <!-- Header -->
+    <header class="w3-display-container w3-content w3-hide-small" style="max-width: 2300px;max-height: 300";>
+        <img class="w3-image" src="https://i.imgur.com/OfxR0fn.jpg" alt="London" width="2300" height="300">
+        <div class="w3-display-middle" style="width: 65%; top: 30%">
+            <div class="w3-bar w3-black">
+                <button class="w3-bar-item w3-button tablink w3-red"></i></button>
+            </div>
+
+            <!-- Tabs -->
+            <div id="Flight" class="w3-container w3-white w3-padding-16 myLink" style="display: block;height: 150px;">
+                <div class="w3-row-padding" style="margin:0 -16px;">
+                    <form action="/results" method="POST">
+                        <p>&nbsp;</p>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-lg" name="name_candidat" placeholder="Chercher le nom complet d'un candidat (EX : 'Emmanuel Macron')" autofocus>
+                            <div class="input-group-btn">
+                                <button class="btn btn-primary btn-lg" type="submit">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-center w3-opacity w3-margin-bottom">
+        <p>&nbsp;</p>
+        <p>Jad Ejrhom - 2022<a href="https://www.linkedin.com/in/jad-ejrhom/"></a></p>
+    </footer>
+
+    <script>
+        // Tabs
+        function openLink(evt, linkName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("myLink");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < x.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+            }
+            document.getElementById(linkName).style.display = "block";
+            evt.currentTarget.className += " w3-red";
+        }
+
+        // Click on the first tablink on load
+        document.getElementsByClassName("tablink")[0].click();
+    </script>
+
+</body>
+</html>
+{% else %}
+<html>
+<head>
+    <title>W3.CSS Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html, body, h1, h2, h3, h4, h5 {
+            font-family: "Raleway", sans-serif
+        }
+    </style>
+</head>
+<body class="w3-light-grey">
+
+    <!-- Top container -->
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+        <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i> &nbsp;Menu</button>
+        <span class="w3-bar-item w3-animate-left">{{results[1]}} 🗳️</span>
+    </div>
+
+    <!-- Sidebar/menu -->
+        <nav class="w3-sidebar w3-collapse w3-animate-left" style="z-index: 3; width: 300px; t: 300px; background-color: #f1f1f1;margin-top: -23px;margin-left: 14px;" id="mySidebar">
+
+            <br>
+            <div class="w3-container">
+                <a class="twitter-timeline" data-width="350" data-height="915" data-theme="light" href="{{results[10]}}">Tweets by {{results[1]}}</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+
+
+
+        </nav>
+
+        <!-- Overlay effect when opening sidebar on small screens -->
+        <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+        <!-- !PAGE CONTENT! -->
+        <div class="w3-main" style="margin-left: 323px; margin-top: 63px; background-color: white;margin-right: 20px;">
+
+            <!-- Header -->
+
+            <header class="w3-container" style="padding-top:22px">
+                <h5><b><i></i>Tableau de board 📊</b> - Les mots les plus cités par {{results[1]}} sur Twitter ces 30 derniers jours </h5>
+            </header>
+            <p>&nbsp;</p>
+            <div class="w3-row-padding w3-margin-bottom">
+                <div class="w3-quarter">
+                    <div class="w3-container w3-blue w3-padding-16">
+                        <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+                        <div class="w3-right">
+                            <h3>{{results[5]}}</h3>
+                        </div>
+                        <div class="w3-clear"></div>
+                        <h4>Nombre de Tweets</h4>
+                    </div>
+                </div>
+                <div class="w3-quarter">
+                    <div class="w3-container w3-orange w3-text-white w3-padding-16">
+                        <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+                        <div class="w3-right">
+                            <h3>{{results[7]}}</h3>
+                        </div>
+                        <div class="w3-clear"></div>
+                        <h4>Nombre de Followers</h4>
+                    </div>
+                </div>
+                <div class="w3-quarter">
+                    <div class="w3-container w3-dark-grey w3-padding-16">
+                        <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+                        <div class="w3-right">
+                            <h3>{{results[6]}}</h3>
+                        </div>
+                        <div class="w3-clear"></div>
+                        <h4>Nombre de Following</h4>
+                    </div>
+                </div>
+                <div class="w3-quarter">
+                    <div class="w3-container w3-teal w3-padding-16">
+                        <div class="w3-left"><i class="fa fa-heart-o w3-xxxlarge"></i></div>
+                        <div class="w3-right">
+                            <h3>{{results[9]}}</h3>
+                        </div>
+                        <div class="w3-clear"></div>
+                        <h4>Nombre de Favoris</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="container">
+                    <div class="main-body">
+                        <!-- /Breadcrumb -->
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+
+                        <div class="row gutters-sm">
+                            <div class="col-md-8" style="margin-left:110px; margin-top:-70px;background-color:white">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <div class="col-sm-9 text-secondary">
+                                            <header>
+                                                <img src="data:image/png;base64, {{results[8]}}" style="width:150%" alt="WordCloud">
+
+                                            </header>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="w3-main" style="margin-left: 300px; margin-top: 43px; background-color: white;">
+                <header>
+                    <h5><b><i></i>News 📰</b></h5>
+                    <table>
+                        {% for key, value in results[2].items() %}
+                        <li><a target="_blank" rel="noopener noreferrer" style="font-family: monospace;color: #434b55;text-align:justify" href="{{value}}">{{key}}</a></li>
+                        {% endfor %}
+                    </table>
+                </header>
+            </div>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <!-- End page content -->
+
+
+            <script>
+                // Get the Sidebar
+                var mySidebar = document.getElementById("mySidebar");
+
+                // Get the DIV with overlay effect
+                var overlayBg = document.getElementById("myOverlay");
+
+                // Toggle between showing and hiding the sidebar, and add overlay effect
+                function w3_open() {
+                    if (mySidebar.style.display === 'block') {
+                        mySidebar.style.display = 'none';
+                        overlayBg.style.display = "none";
+                    } else {
+                        mySidebar.style.display = 'block';
+                        overlayBg.style.display = "block";
+                    }
+                }
+
+                // Close the sidebar with the close button
+                function w3_close() {
+                    mySidebar.style.display = "none";
+                    overlayBg.style.display = "none";
+                }
+            </script>
+            <br><br>
+            {%endif%}
+</html>
